@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RecallBox | Reminders</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="reminder-topbar">
+
+        <div class="reminder-brand">
+            RecallBox 🧠
+        </div>
+
+        <a href="{{ url_for('index', show_app=1) }}"
+           class="back-button">
+            ← Back to Memories
+        </a>
+
+    </header>
+
+
+    <main class="reminders-container">
+
+        <section class="reminder-heading">
+
+            <h1>My Reminders ⏰</h1>
+
+            <p>Never forget the things that matter!</p>
+
+        </section>
+
+
+        <!-- FLASH MESSAGES -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+
+        <!-- ADD REMINDER -->
+
+        <section class="add-reminder-card">
+
+            <h2>Create a New Reminder ✨</h2>
+
+            <form action="{{ url_for('add_reminder') }}"
+                  method="POST"
+                  class="modern-reminder-form">
+
+                <div class="modern-reminder-row">
+
+                    <div class="reminder-symbol">
+                        📝
+                    </div>
+
+                    <div class="reminder-details">
+
+                        <label for="reminderTitle">
+                            Reminder Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="reminderTitle"
+                            name="title"
+                            placeholder="What do you need to remember?"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modern-reminder-row">
+
+                    <div class="reminder-symbol">
+                        📅
+                    </div>
+
+                    <div class="reminder-details">
+
+                        <label for="reminderDate">
+                            Select Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="reminderDate"
+                            name="due_date"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modern-reminder-row">
+
+                    <div class="reminder-symbol">
+                        🕒
+                    </div>
+
+                    <div class="reminder-details">
+
+                        <label for="reminderTime">
+                            Select Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="reminderTime"
+                            name="due_time"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit">
+                    + Add Reminder
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- REMINDER LIST -->
+
+        <section class="reminder-list-section">
+
+            <h2>Your Reminder List 💜</h2>
+
+            {% if reminders %}
+
+                <div class="reminder-list">
+
+                    {% for reminder in reminders %}
+
+                        <div class="reminder-card
+                            {% if reminder['is_completed'] %}
+                                status-completed
+                            {% else %}
+                                status-pending
+                            {% endif %}">
+
+                            <div class="reminder-card-content">
+
+                                <h3>
+                                    {{ reminder['title'] }}
+                                </h3>
+
+                                <p>
+                                    📅 {{ reminder['due_date'] }}
+                                </p>
+
+                                {% if reminder['is_completed'] %}
+
+                                    <span class="reminder-status">
+                                        ✅ Completed
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="reminder-status">
+                                        ⏳ Pending
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <!-- COMPLETE / REOPEN -->
+
+                            <form
+                                action="{{ url_for('complete_reminder', reminder_id=reminder['id']) }}"
+                                method="POST">
+
+                                <button type="submit"
+                                        class="complete-btn">
+
+                                    {% if reminder['is_completed'] %}
+                                        ↩ Reopen
+                                    {% else %}
+                                        ✓ Mark Completed
+                                    {% endif %}
+
+                                </button>
+
+                            </form>
+
+
+                            <!-- DELETE -->
+
+                            <form
+                                action="{{ url_for('delete_reminder', reminder_id=reminder['id']) }}"
+                                method="POST"
+                                onsubmit="return confirm('Delete this reminder?');">
+
+                                <button type="submit"
+                                        class="delete-btn">
+
+                                    🗑 Delete
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="empty-reminders">
+
+                    <h3>No reminders yet! 🌸</h3>
+
+                    <p>Create your first reminder above.</p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>Made with 💜 | RecallBox</p>
+    </footer>
+
+</body>
+</html>

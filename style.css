@@ -1,0 +1,738 @@
+/* =====================================
+   RECALLBOX - COMPLETE STYLESHEET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #8064d8;
+    --primary-dark: #6848c2;
+    --secondary: #f0eaff;
+    --background: #faf8ff;
+    --white: #ffffff;
+    --text: #302747;
+    --muted: #817a91;
+    --border: #e9e2f5;
+    --success: #238b62;
+    --danger: #dc5570;
+    --shadow: 0 5px 20px rgba(74, 49, 125, 0.08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =====================================
+   LANDING PAGE
+===================================== */
+
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f1eaff, #ffffff, #eee7ff);
+}
+
+.welcome-content {
+    max-width: 650px;
+    background: white;
+    padding: 55px 35px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+}
+
+.welcome-content h1 {
+    color: var(--primary);
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.welcome-content p {
+    color: var(--muted);
+    margin: 15px 0;
+}
+
+.welcome-content .tagline {
+    color: var(--text);
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.start-button {
+    margin-top: 25px;
+    padding: 14px 35px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    text-align: center;
+    padding: 25px 15px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.tagline {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   MAIN CONTAINER
+===================================== */
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 30px auto;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+.dashboard-section {
+    margin-bottom: 35px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 15px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 20px 12px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+}
+
+.dashboard-icon {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.dashboard-card h3 {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.dashboard-number {
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* =====================================
+   REMINDER NAVIGATION
+===================================== */
+
+.reminders-navigation {
+    background: linear-gradient(120deg, #8064d8, #a78bea);
+    color: white;
+    padding: 23px;
+    border-radius: 16px;
+    margin-bottom: 35px;
+}
+
+.reminders-navigation-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.reminders-navigation h2 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.reminders-navigation p {
+    font-size: 14px;
+}
+
+.reminders-navigation-button {
+    background: white;
+    color: var(--primary-dark);
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* =====================================
+   SAVE MEMORY
+===================================== */
+
+.save-section {
+    background: white;
+    padding: 28px;
+    border-radius: 17px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 35px;
+}
+
+#memoryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #fdfcff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(128, 100, 216, 0.1);
+}
+
+textarea {
+    resize: vertical;
+}
+
+#memoryForm button,
+.modern-reminder-form > button {
+    padding: 13px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+#memoryForm button:hover,
+.modern-reminder-form > button:hover {
+    background: var(--primary-dark);
+}
+
+/* =====================================
+   TIMELINE
+===================================== */
+
+.timeline-section {
+    margin-bottom: 35px;
+}
+
+.timeline-list {
+    border-left: 2px solid #d8cafa;
+    margin-left: 9px;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 13px;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background: var(--primary);
+    border-radius: 50%;
+    left: -26px;
+    top: 13px;
+}
+
+.timeline-content {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 9px 13px;
+    border-radius: 10px;
+    max-width: 700px;
+    box-shadow: var(--shadow);
+}
+
+.timeline-content h3 {
+    font-size: 15px;
+}
+
+.timeline-content p {
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.timeline-content small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =====================================
+   SAVED MEMORIES
+===================================== */
+
+.saved-section {
+    margin-bottom: 40px;
+}
+
+.search-box,
+.filter-box,
+.sort-box {
+    margin-bottom: 12px;
+}
+
+.memory-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 17px;
+    margin-top: 20px;
+}
+
+.memory-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 17px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+    transition: 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateY(-3px);
+}
+
+.memory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.memory-title {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.memory-type {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    padding: 4px 9px;
+    border-radius: 15px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.memory-date {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.view-memory-button {
+    background: #f0eaff;
+    color: var(--primary-dark);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.memory-details {
+    background: #faf8ff;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+.memory-content {
+    font-size: 13px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================
+   MEMORY BUTTONS
+===================================== */
+
+.memory-card button {
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.important-form {
+    margin: 7px 0;
+}
+
+.important-button,
+.edit-button,
+.delete-button {
+    padding: 8px 11px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 3px 3px 3px 0;
+}
+
+.important-button {
+    background: #fff3d8;
+    color: #9b6b00;
+}
+
+.edit-button {
+    background: #e9e4ff;
+    color: #6848c2;
+}
+
+.delete-button {
+    background: #ffe8ed;
+    color: #c33d5a;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 12px 0;
+    padding: 13px;
+    background: #faf8ff;
+    border-radius: 9px;
+}
+
+.edit-form[hidden] {
+    display: none;
+}
+
+.edit-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* =====================================
+   EMPTY MESSAGE
+===================================== */
+
+.empty-message,
+.empty-reminders {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--muted);
+    border: 1px dashed var(--border);
+}
+
+/* =====================================
+   FLASH MESSAGES
+===================================== */
+
+.flash-message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.flash-message.success {
+    background: #e5f8ed;
+    color: #187849;
+}
+
+.flash-message.error {
+    background: #ffe8eb;
+    color: #bd344d;
+}
+
+/* =====================================
+   REMINDERS PAGE
+===================================== */
+
+.reminder-topbar {
+    background: white;
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.reminder-brand {
+    color: var(--primary);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.back-button {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.reminders-container {
+    max-width: 850px;
+    width: 92%;
+    margin: 35px auto;
+}
+
+.reminder-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.reminder-heading h1 {
+    color: var(--primary);
+    font-size: 30px;
+}
+
+.reminder-heading p {
+    color: var(--muted);
+}
+
+.add-reminder-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    margin-bottom: 35px;
+}
+
+.modern-reminder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.modern-reminder-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.reminder-symbol {
+    font-size: 24px;
+    background: var(--secondary);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.reminder-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.reminder-list-section {
+    margin-bottom: 35px;
+}
+
+.reminder-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.reminder-card {
+    background: white;
+    padding: 17px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.reminder-card-content {
+    flex: 1;
+    min-width: 160px;
+}
+
+.reminder-card h3 {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.reminder-card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.reminder-status {
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.status-completed {
+    opacity: 0.7;
+    background: #f4fbf6;
+}
+
+.status-pending {
+    border-left: 4px solid var(--primary);
+}
+
+.complete-btn,
+.delete-btn {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.complete-btn {
+    background: #e5f8ed;
+    color: #187849;
+}
+
+.delete-btn {
+    background: #ffe8ed;
+    color: #c33d5a;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    background: white;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 650px) {
+
+    .welcome-content {
+        padding: 35px 20px;
+    }
+
+    .welcome-content h1 {
+        font-size: 34px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reminders-navigation-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .memory-list {
+        grid-template-columns: 1fr;
+    }
+
+    .save-section,
+    .add-reminder-card {
+        padding: 18px;
+    }
+
+    .reminder-topbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .reminder-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .reminder-card form {
+        width: 100%;
+    }
+
+    .reminder-card button {
+        width: 100%;
+    }
+}
